@@ -12,7 +12,7 @@ module ClientOperation
     soap_version 2
     namespace_identifier nil
     env_namespace :soap12
-    log true
+    log false
   end
 
   def soap_client
