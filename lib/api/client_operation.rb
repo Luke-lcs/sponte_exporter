@@ -12,7 +12,7 @@ module ClientOperation
     soap_version 2
     namespace_identifier nil
     env_namespace :soap12
-    log false
+    log true
   end
 
   def soap_client
@@ -21,7 +21,7 @@ module ClientOperation
 
   def soap_params(action_name, token, client_code, attributes, student_id = nil)
     {
-      message: RequestBodyBuilder.new(
+      xml: RequestBodyBuilder.new(
         action_name,
         attributes,
         token: token,
