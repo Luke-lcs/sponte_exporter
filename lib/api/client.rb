@@ -31,7 +31,6 @@ class ApiClient
     @_timesheets ||= begin
                        puts 'Buscando quadros de horários na API...'
                        response = soap_client.call(:get_quadro_horarios, soap_params(:get_quadro_horarios, @token, @client_code, timesheets_search_params))
-                       # A API pode retornar duplicatas, então garantimos a unicidade aqui.
                        sheets = process_response(response, :get_quadro_horarios_response, :get_quadro_horarios_result, :ws_quadro_horarios)
                        sheets.uniq { |s| [s[:turma_id], s[:disciplina_id], s[:professor_id]] }
                      end
