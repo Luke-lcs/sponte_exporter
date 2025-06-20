@@ -26,12 +26,10 @@ class RequestBodyBuilder
       envelope(xml) do
         body(xml) do
           action(xml) do
-            # Adiciona os parâmetros base da requisição
             xml.sToken @token
             xml.nCodigoCliente @client_code
             xml.nAlunoID @student_id if @student_id.present?
 
-            # Adiciona os parâmetros específicos da busca
             add_attributes_tags(xml, @attributes)
           end
         end
